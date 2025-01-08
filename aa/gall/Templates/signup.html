@@ -1,0 +1,136 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN UP</title>
+    <link rel="stylesheet", href="{% static '/css/style1.css' %} ">
+    <style>
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    background: gray;
+    flex-direction: column;
+    margin: 0;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .container {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    transition: transform 0.2s;
+    width: 500px;
+    text-align: center;
+  }
+  
+  label {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  text-align: left;
+  color: black;
+  font-weight: bold;
+}
+
+  input {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  input:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  button {
+  padding: 5px;
+  border-radius: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  background-color: rgb(169, 30, 30);
+  width: 100%;
+  font-size: 16px;
+  text-align: center;
+}
+  .sub {
+    background-color:  rgb(169, 30, 30);
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .sub:hover {
+    opacity: 1;
+  }
+  
+  a {
+    color: dodgerblue;
+    text-decoration: none;
+  }
+  
+  /* .signin {
+    background-color: #f1f1f1;
+    text-align: center;
+  } */
+    </style>
+</head>
+<body>
+     
+
+    <form action="{% url 'signup' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container">
+            <h1>REGISTER</h1>
+        <label for="first">Username:</label>
+        <input type="text" name="username" placeholder="Enter Your Username" required>
+
+        <label for="email">email:</label>
+        <input type="text" name="email" placeholder="Enter Your email" required>
+
+        <label for="password">password:</label>
+        <input type="password" name="password" placeholder="Enter Your password" required>
+
+        <label for="repeat password">repeat password:</label>
+        <input type="password" name="confirmpassword" placeholder="Enter Your password" required>
+        
+        <div class="sub">
+        <button type="submit">REGISTER</button>
+        </div>
+
+        <div class="signin">
+            <P>Already have an account <a href="{% url 'signin' %}">Sign In</a></P>
+        </div>
+    </div>
+    </form>
+    </div>
+    
+</body>
+</html>

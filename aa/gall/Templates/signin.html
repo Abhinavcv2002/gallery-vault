@@ -1,0 +1,144 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN IN</title>
+    <link rel="stylesheet", href="{% static '/css/style.css' %} ">
+    <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 15px;
+  background: gray;
+  overflow: hidden;
+}
+
+.wrapper {
+  max-width: 500px;
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .title {
+  height: 120px;
+  background: gray;
+  border-radius: 5px 5px 0 0;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.t1 {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  padding: 10px 20px;
+  transition: transform 0.2s;
+  width: 500px;
+  text-align: center;
+}
+
+h1 {
+  color: black;
+}
+
+label {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  text-align: left;
+  color: black;
+  font-weight: bold;
+}
+
+input {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button {
+  padding: 15px;
+  border-radius: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  background-color: rgb(169, 30, 30);
+  width: 100%;
+  font-size: 16px;
+  text-align: center;
+}
+
+.sub {
+  display: flex;
+  justify-content: center;
+}
+
+.sub1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a{
+  color: dodgerblue;  
+  text-decoration: none;
+}
+    </style>
+</head>
+<body>
+     
+    <div class="t1"> <h1>GALLERYVAULT</h1> 
+
+    <form action="{% url 'signin' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="wrapper">
+        <div class="title"><span>Login Form</span></div>
+
+        <div class="row">
+        <label for="first">Username:</label>
+        <input type="text" name="username" placeholder="Enter Your Username" required>
+        </div>
+
+        <div class="row">
+        <label for="password">password:</label>
+        <input type="password" name="password" placeholder="Enter Your password" required>
+        </div>
+
+        <div class="sub1">
+            <button type="submit">LOGIN</button>
+            </div>
+
+        <div class="sub">
+            <p>Not a member?<a href="{% url 'signup' %}">Sign Up</a></p>
+
+        </div>
+    </form>
+    </div>
+    
+</body>
+</html>
